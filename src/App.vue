@@ -4,14 +4,13 @@
     <div v-if="store.hasError">Error in {{ store.err }}</div>
     <div v-if="store.loading">loading ....</div>
     <div v-else v-for="t in store.todoList">
-      {{ t.title }}
+      {{ t.completed }}
     </div>
   </Layout>
 </template>
 
 <script async setup lang="ts">
 import Layout from './layouts/default.vue';
-import { ref } from 'vue';
 import { useTodoStore } from './store/todo';
 const store = useTodoStore();
 store.getTodo();
