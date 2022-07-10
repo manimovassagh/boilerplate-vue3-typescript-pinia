@@ -4,8 +4,9 @@
     <div v-if="store.hasError">Error in {{ store.err }}</div>
     <div v-if="store.loading">loading ....</div>
     <div v-else v-for="t in store.todoList">
-   
-      {{ t.id }}
+         {{ t.id }}
+         {{ t.completed }}
+         {{ t.userId }}
     </div>
   </Layout>
 </template>
