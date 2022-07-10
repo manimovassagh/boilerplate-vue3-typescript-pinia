@@ -1,6 +1,7 @@
 <template>
   <Layout>
     <div class="testApp">Test App</div>
+    <div>Make some changes direct in production</div>
     <div class="containerResponse">
       <div v-if="store.hasError">Error in {{ store.err }}</div>
       <div v-if="store.loading">loading ....</div>
