@@ -1,9 +1,9 @@
 <template>
   <Layout>
     <div class="testApp">Test App</div>
-    
-    <!-- <div v-if="loading">loading ....</div> -->
-    <div  v-for="t in store.todoList">
+    <div v-if="store.hasError">Error in {{ store.err }}</div>
+    <div v-if="store.loading">loading ....</div>
+    <div v-else v-for="t in store.todoList">
       {{ t.title }}
     </div>
   </Layout>

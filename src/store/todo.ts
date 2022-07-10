@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 import { defineStore, acceptHMRUpdate } from 'pinia';
 import { Task } from './../models/task.models';
 import { generateID, sleep } from './../utils';
@@ -18,6 +18,8 @@ export interface TodoList {
 interface StateMani {
   todoList: TodoList | undefined;
   loading: boolean;
+  hasError: boolean;
+  err: AxiosError | null;
 }
 
 export const useTodoStore = defineStore({
@@ -25,16 +27,23 @@ export const useTodoStore = defineStore({
   state: (): StateMani => ({
     todoList: undefined,
     loading: true,
+    hasError: false,
+    err: null,
   }),
 
   getters: {},
   actions: {
     async getTodo() {
       await axios
-        .get('https://jsonplaceholder.typicode.com/todos')
+        .get('https://jsonplaceholder.typicode.com/todoss')
         .then((res) => {
           this.todoList = res.data;
           this.loading = false;
+        })
+        .catch((err) => {
+          this.hasError = true;
+          this.loading = false;
+          this.err = err.message;
         });
     },
   },
