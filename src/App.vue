@@ -1,12 +1,14 @@
 <template>
   <Layout>
     <div class="testApp">Test App</div>
-    <div v-if="store.hasError">Error in {{ store.err }}</div>
-    <div v-if="store.loading">loading ....</div>
-    <div v-else v-for="t in store.todoList">
-         {{ t.id }}
-         {{ t.completed }}
-         {{ t.title }}
+    <div class="containerResponse">
+      <div v-if="store.hasError">Error in {{ store.err }}</div>
+      <div v-if="store.loading">loading ....</div>
+      <div v-else v-for="t in store.todoList">
+        {{ t.id }}
+        {{ t.completed }}
+        {{ t.title }}
+      </div>
     </div>
   </Layout>
 </template>
@@ -17,7 +19,7 @@ import Layout from './layouts/default.vue';
 import { useTodoStore } from './store/todo';
 const store = useTodoStore();
 
-onMounted(()=>{
+onMounted(() => {
   store.getTodo();
 
 })
@@ -98,6 +100,7 @@ $padding: 10px;
     }
   }
 }
+
 .testApp {
   text-align: center;
 }
