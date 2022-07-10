@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "axios": "^0.27.2",
+    "firebase": "^9.9.0",
     "pinia": "^2.0.11",
     "pinia-plugin-persistedstate": "^1.5.1",
     "vue": "^3.2.31"
