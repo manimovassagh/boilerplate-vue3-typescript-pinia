@@ -15,8 +15,8 @@ export interface TodoList {
   completed: boolean;
 }
 //type checking with ts for our peoject
-interface StateMani {
-  todoList: TodoList | undefined;
+interface iStateTodo {
+  todoList: TodoList[] | undefined;
   loading: boolean;
   hasError: boolean;
   err: Error | null;
@@ -24,7 +24,7 @@ interface StateMani {
 
 export const useTodoStore = defineStore({
   id: 'todo',
-  state: (): StateMani => ({
+  state: (): iStateTodo => ({
     todoList: undefined,
     loading: true,
     hasError: false,
