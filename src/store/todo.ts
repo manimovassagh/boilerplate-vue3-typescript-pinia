@@ -15,21 +15,27 @@ export interface TodoList {
   completed: boolean;
 }
 
+interface StateMani {
+  todoList: TodoList | undefined;
+  loading: boolean;
+}
+
 export const useTodoStore = defineStore({
   id: 'todo',
-  state: () => ({
-    todoList: [] as TodoList | never[]  ,
+  state: (): StateMani => ({
+    todoList: undefined,
     loading: true,
   }),
 
   getters: {},
   actions: {
     async getTodo() {
-      await axios.get('https://jsonplaceholder.typicode.com/todos').then((res) => {
-        this.todoList = res.data;
-        this.loading = false;
-      });
+      await axios
+        .get('https://jsonplaceholder.typicode.com/todos')
+        .then((res) => {
+          this.todoList = res.data;
+          this.loading = false;
+        });
     },
   },
 });
-

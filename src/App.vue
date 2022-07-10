@@ -1,9 +1,9 @@
 <template>
   <Layout>
     <div class="testApp">Test App</div>
-    {{todoList}}
+    
     <!-- <div v-if="loading">loading ....</div> -->
-    <div  v-for="t in todoList">
+    <div  v-for="t in store.todoList">
       {{ t.title }}
     </div>
   </Layout>
@@ -13,7 +13,7 @@
 import Layout from './layouts/default.vue';
 import { ref } from 'vue';
 import { useTodoStore } from './store/todo';
-const { todoList, loading } = useTodoStore();
+const store = useTodoStore();
 store.getTodo();
 </script>
 
