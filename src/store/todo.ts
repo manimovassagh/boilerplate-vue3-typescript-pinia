@@ -16,7 +16,7 @@ export interface TodoList {
 }
 //type checking with ts for our peoject
 interface iStateTodo {
-  todoList: TodoList[] | undefined;
+  todoList: TodoList[]  |undefined;
   loading: boolean;
   hasError: boolean;
   err: Error | null;
