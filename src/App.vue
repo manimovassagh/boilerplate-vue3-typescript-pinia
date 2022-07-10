@@ -6,16 +6,22 @@
     <div v-else v-for="t in store.todoList">
          {{ t.id }}
          {{ t.completed }}
-         {{ t.userId }}
+         {{ t.title }}
     </div>
   </Layout>
 </template>
 
 <script async setup lang="ts">
+import { onMounted } from 'vue';
 import Layout from './layouts/default.vue';
 import { useTodoStore } from './store/todo';
 const store = useTodoStore();
-store.getTodo();
+
+onMounted(()=>{
+  store.getTodo();
+
+})
+
 </script>
 
 <style lang="scss">
