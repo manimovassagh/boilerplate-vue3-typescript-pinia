@@ -1,9 +1,10 @@
 <template>
   <Layout>
     <div class="testApp">Test App</div>
-    <div v-for="todo in store.todoList" :key="todo.userId"></div>
-    {{ store.todoList }}
-    {{ todo.title }}
+    
+    <div v-for="t in store.todoList" >
+    {{ t.title }}
+    </div>
   </Layout>
 </template>
 

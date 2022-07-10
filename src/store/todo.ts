@@ -18,7 +18,7 @@ export interface TodoList {
 export const useTodoStore = defineStore({
   id: 'todo',
   state: () => ({
-    todoList: [],
+    todoList: [] as TodoList | never[]  ,
     loading: true,
   }),
 
