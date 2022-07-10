@@ -1,40 +1,19 @@
 <template>
   <Layout>
-    <div class="testApp">Test App {{foo}}</div>
+    <div class="testApp">Test App</div>
+    <div v-for="todo in store.todoList" :key="todo.userId"></div>
+    {{ store.todoList }}
+    {{ todo.title }}
   </Layout>
 </template>
 
-<script setup lang="ts">
+<script async setup lang="ts">
 import Layout from './layouts/default.vue';
-import {  ref } from 'vue';
+import { ref } from 'vue';
 import { useTodoStore } from './store/todo';
-const foo="foo"
-
-
+const store = useTodoStore();
+store.getTodo();
 </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <style lang="scss">
 $primary-color: #3498db;

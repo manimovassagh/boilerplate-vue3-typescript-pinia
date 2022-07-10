@@ -24,8 +24,8 @@ export const useTodoStore = defineStore({
 
   getters: {},
   actions: {
-    async getTodo(): Promise<void> {
-      axios.get('https://jsonplaceholder.typicode.com/todos').then((res) => {
+    async getTodo() {
+      await axios.get('https://jsonplaceholder.typicode.com/todos').then((res) => {
         this.todoList = res.data;
         this.loading = false;
       });
