@@ -19,7 +19,7 @@ interface StateMani {
   todoList: TodoList | undefined;
   loading: boolean;
   hasError: boolean;
-  err: AxiosError | null;
+  err: Error | null;
 }
 
 export const useTodoStore = defineStore({
