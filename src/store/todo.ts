@@ -14,7 +14,7 @@ export interface TodoList {
   title: string;
   completed: boolean;
 }
-
+//type checking with ts for our peoject
 interface StateMani {
   todoList: TodoList | undefined;
   loading: boolean;
