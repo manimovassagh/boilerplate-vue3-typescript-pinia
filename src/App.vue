@@ -1,45 +1,40 @@
 <template>
   <Layout>
-    <div class="testApp">Test App</div>
+    <div class="testApp">Test App {{foo}}</div>
   </Layout>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import Layout from './layouts/default.vue';
-import { defineComponent, ref } from 'vue';
+import {  ref } from 'vue';
 import { useTodoStore } from './store/todo';
+const foo="foo"
 
-export default defineComponent({
-  components: { Layout },
 
-  setup() {
-    const taskName = ref();
-    const todoStore = useTodoStore();
-
-    function createTask(): void {
-      todoStore.addTask(taskName.value);
-      taskName.value = '';
-    }
-
-    function deleteTask(id: string): void {
-      todoStore.deleteTask(id);
-    }
-
-    function updateTask(id: string): void {
-      todoStore.updateTask(id);
-    }
-
-    return {
-      taskName,
-      createTask,
-      deleteTask,
-      updateTask,
-
-      todoStore,
-    };
-  },
-});
 </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <style lang="scss">
 $primary-color: #3498db;
