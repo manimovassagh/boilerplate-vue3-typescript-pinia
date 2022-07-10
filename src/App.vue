@@ -1,51 +1,6 @@
 <template>
   <Layout>
-    <form class="form-task" v-on:submit.prevent="createTask">
-      <input
-        type="text"
-        class="form-task__input"
-        placeholder="Add new task"
-        v-model="taskName"
-      />
-      <button class="form-task__button">Create task</button>
-    </form>
-
-    <div class="no-result" v-if="!todoStore.tasks.length && !todoStore.loading">
-      <span>😧</span>
-      <br />
-      <strong>No items yet...</strong>
-    </div>
-
-    <template v-else-if="todoStore.tasks.length && !todoStore.loading">
-      <div class="task-container">
-        <div
-          class="card-task"
-          v-for="task in todoStore.tasks"
-          v-bind:class="{ done: task.done }"
-        >
-          <input
-            type="checkbox"
-            class="card-task__checkbox"
-            :checked="task.done"
-            v-on:click.prevent="updateTask(task.id)"
-          />
-
-          <strong class="card-task__name">{{ task.name }}</strong>
-
-          <button
-            type="button"
-            class="card-task__button"
-            v-on:click.prevent="deleteTask(task.id)"
-          >
-            ❌
-          </button>
-        </div>
-      </div>
-    </template>
-
-    <div class="loading-container" v-if="todoStore.loading">
-      <strong>Loading...</strong>
-    </div>
+    <div class="testApp">Test App</div>
   </Layout>
 </template>
 
@@ -159,5 +114,8 @@ $padding: 10px;
       cursor: pointer;
     }
   }
+}
+.testApp {
+  text-align: center;
 }
 </style>
